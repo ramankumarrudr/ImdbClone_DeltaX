@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstarp && CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/i_logo.jpeg' %}" width="50" height="25"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link " href="{%url 'index'%}">Movies<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'tvshow'%}">Tv-Shows</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Celebrities</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0" style="float: right;padding-block: 10px">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+
+              </nav>
+
+{% if actors %}
+
+
+<div style="width:100%" class="row">
+        {% for img in actors %}
+            <div class="card" style="width: 18rem; padding-block: 50px" >
+              <img class="card-img-top" src="{{img.actor_image.url}}" alt="Image Doest Exist" width="150px" height="150px">
+              <div class="card-body" style="text-align: center">
+                <p class="card-text">{{img.actor}}</p>
+              </div>
+            </div>
+        {% endfor%}
+        </div>
+{% else %}
+<p>No Actor Data</p>
+{% endif %}
+
+<div class="pagination center-block " >
+        <nav aria-label="Page navigation example">
+          <span class="step-links pagination">
+              {% if actors.has_previous %}
+                  <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                  <li class="page-item"><a class="page-link" href="?page={{ actors.previous_page_number }}">previous</a></li>
+              {% endif %}
+      
+              <span class="current" style="padding-left: 10px">
+                  Page {{ actors.number }} of {{ actors.paginator.num_pages }}.
+              </span>
+      
+              {% if actors.has_next %}
+              <li class="page-item"> <a class="page-link" href="?page={{ actors.next_page_number }}">next</a></li>
+                <li class="page-item">  <a class="page-link" href="?page={{ actors.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+          </span>
+          </nav>
+      </div>
+<button onclick="myFunction()" type="button" class="btn btn-primary" style="display: block; margin: 0 auto;">Add Actor</button>
+</body>
+     <script>
+    function myFunction() {
+    window.open("http://0.0.0.0:8000/actor-form/", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+    }
+    
+</script>
+</html>

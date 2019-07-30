@@ -1,0 +1,17 @@
+.table_data{
+    border-color: gainsboro;
+    border-style: solid ;
+    border-width: 2px;
+   
+}
+.table_body{
+    text-align: center;
+    border-color: gainsboro;
+    border-style: solid ;
+    border-width: 2px;
+}
+
+.t_head{
+    background-color: gray; 
+}
+

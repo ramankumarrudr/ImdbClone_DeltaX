@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstarp && CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{%url 'index'%}"><img src="{% static 'images/i_logo.jpeg' %}" width="50" height="25"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="{% url 'index'%}">Movies<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Tv-Shows</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{%url 'actor'%}">Celebrities</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0" style="float: right;padding-block: 10px">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+
+              </nav>
+
+ <!-- image courosel start--> 
+
+
+ <!-- carousel end-->
+
+<!-- craete Sections-->
+
+
+  <div class="container">
+      <h3>TV-SHOWS</h3>
+      <!-- section start -->
+      <table class="table">
+        <thead class="t_head">
+          <tr>
+            <th scope="col" class="table_body">Poster</th>
+            <th scope="col" class="table_body">Tvshow Name</th>
+            <th scope="col" class="table_body">Year of Release</th>
+            <th scope="col" class="table_body">Plot</th>
+            <th scope="col" class="table_body">Cast</th>
+            <th scope="col" class="table_body">Edit</th>
+            <th scope="col" class="table_body">Delete</th>
+          </tr>
+        </thead>
+        {% if tvshow %}
+        <tbody>
+            {% for show in tvshow %}
+          <tr>
+            <td class="table_data"><img src="{{ show.tvshow_image.url }}" alt="image" width="175" height="250" class="img-thumbnail rounded mx-auto d-block"></br>
+              <button type="button" class="btn btn-primary">{{show.lang}}</button> <button type="button" class="btn btn-primary">{{show.gener}}</button> <button type="button" class="btn btn-primary">{{show.status}}</button>
+            </td>
+            </td>
+            <td class="table_data">{{ show.tvshow }}</td>
+            <td class="table_data">{{ show.release_date }}</td>
+            <td class="table_data">{{ show.plot }}</td>
+            <td class="table_data">{{ show.get_actor_values }}</td>
+            <td class="table_data"><a href="{% url 'update_tvshow' id=show.id %}"><i class="material-icons">create</i></a></td>
+            <td class="table_data"><a href="{% url 'delete_tvshow' id=show.id %}"><i class="material-icons">delete</i></a></td>
+ 
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% else %}
+            <p>No ACCESS RECORDS FOUND!</p>
+        {% endif %}    
+      </table>
+
+      <div class="pagination">
+        <nav aria-label="Page navigation example">
+          <span class="step-links pagination">
+              {% if tvshow.has_previous %}
+                  <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                  <li class="page-item"><a class="page-link" href="?page={{ tvshow.previous_page_number }}">previous</a></li>
+              {% endif %}
+      
+              <span class="current" style="padding-left: 10px">
+                  Page {{ tvshow.number }} of {{ tvshow.paginator.num_pages }}.
+              </span>
+      
+              {% if tvshow.has_next %}
+              <li class="page-item"> <a class="page-link" href="?page={{ tvshow.next_page_number }}">next</a></li>
+                <li class="page-item">  <a class="page-link" href="?page={{ tvshow.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+          </span>
+      </div>
+      </div>
+
+<div class="container" >
+  <a href="{%url 'show_form'%}"><button type="button" class="btn btn-danger" style="display: block; margin: 0 auto;">Add TV-SHOW</button>
+</div>
+
+<!-- sections end-->
+
+<!-- Movie Data from data-base-->
+
+</body>
+</html>

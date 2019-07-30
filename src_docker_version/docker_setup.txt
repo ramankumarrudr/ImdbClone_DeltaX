@@ -1,0 +1,19 @@
+1)sudo apt install docker-compose
+2)sudo apt install docker.io
+3)from root folder(imdb_clone) run permissions
+4)sudo chown -R $USER:$USER imdb_clone/manage.py
+5)sudo chown -R $USER:$USER imdb_clone/imdb_clone/
+6)docker-compose build
+7)docker-compose up
+8) visit webpage at 0.0.0.0:8000 on your local-host
+9) To perform deletion of item u need to login as superuser
+	-0.0.0.0:8000/admin/ - username - root , password - rootuser
+10) docker-compose run web python3 manage.py migrate
+
+Temp git info:
+
+ImdbClone_DeltaX
+
+This Project is developed as a selection process for Deltax. It Contains the basic requirements that are mentioned by the company. The entire project is developed using Django(MVCT) Faramework.Users can add movies and actors and Tv-shows and can edit them and delete if they have the root privilages. More Documentation will be available in Documentation.txt file.This project has two versions 1)This version allows the user deploy the app using Docker Server. 2)Run on local host with installing required dependencies as pip install and run the python manage.py command from the imdb_clone directory.(Better to run it as a docker file as it reduces your burden)
+Method I(Using python manage.py runserver form /src/imdb_clone/ directory)
+
