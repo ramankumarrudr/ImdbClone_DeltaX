@@ -1,0 +1,36 @@
+As specified entire project is developed using a mvc farmework. As i am more comffortable with python i have proceded with django frame work.
+This project uses:
+  -Django Framework as a MVC
+  -Bootstrap for creating ui elements
+  -very little ammount of javascript for popups
+  -it uses default database that comes with dajango that is sqllite but it can be easily migrated by adding a postgres-sql engine by adding following:
+    -‘default’: {
+
+        ‘ENGINE’: ‘django.db.backends.postgresql’,
+
+        ‘NAME’: ‘myproject’,
+
+        ‘USER’: ‘myuser,
+
+        ‘PASSWORD’ : ‘mypassword’,
+
+        ‘HOST’ : ‘localhost’,
+
+        ‘PORT’ : ‘5432’
+
+    } by changing default dbsqllite to postgresql
+- models :
+    - Actors
+    - Movies
+    - Tvshows
+- views:
+  - movie views with adittional update-forms and add-actors form and delete-movie data on frontend view
+  - tvshow with the same functionality
+  - Celebrities 
+- Currently working on filter views anf filter data
+
+Users can edit update the movie details,tvshow details and can add actors
+ 
+Allowed Hosts can be added to view app on particular port and local address. 
+    
+    
