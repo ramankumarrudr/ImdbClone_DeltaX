@@ -1,8 +1,8 @@
 # ImdbClone_DeltaX
 This Project is developed as a selection process for Deltax. It Contains the basic requirements that are mentioned by the company. The entire project is developed using Django(MVCT) Faramework.Users can add movies and actors and Tv-shows and can edit them and delete if they have the root privilages. More Documentation will be available in Documentation.txt file.This project has two versions 1)This version allows the user deploy the app using Docker Server. 2)Run on local host with installing required dependencies as pip install and run the python manage.py command from the imdb_clone directory.(Better to run it as a docker file 
 as it reduces your burden)
-# Note for entering multiple actors in movie form use - ctr+left mouse click
-# In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july  
+# Note1) for entering multiple actors in movie form use - (ctr+left mouse click)
+# Note2) In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july  
 # Clone the git Repo
 # Method 1(Using docker-compose)
 
