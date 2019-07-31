@@ -3,7 +3,7 @@ This Project is developed as a selection process for Deltax. It Contains the bas
 as it reduces your burden)
 # Note1) for entering multiple actors in movie form use - (ctr+left mouse click)
 # Note2) In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july 
-# Note 3) if you are using docker please do use sudo every time you runn the docker-compose command
+# Note 3) if you are using docker please do use sudo every time you run the docker-compose command
 # Clone the git Repo
 # Method 1(Using docker-compose)
 
