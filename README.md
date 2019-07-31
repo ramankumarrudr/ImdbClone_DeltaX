@@ -4,6 +4,7 @@ as it reduces your burden)
 # Note1) for entering multiple actors in movie form use - (ctr+left mouse click)
 # Note2) In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july 
 # Note 3) if you are using docker please do use sudo every time you run the docker-compose command
+# Note 4) For deleting records you need to login to the /admin/ page . For creating user name and password you can use createsuper command as mentioned below.
 # Clone the git Repo
 # Method 1(Using docker-compose)
 
@@ -32,7 +33,7 @@ src_docker_version/$sudo chown -R $USER:$USER imdb_clone/imdb_clone/
 src_docker_version/$ sudo docker-compose build  (Takes Some time)
 src_docker_version/$ sudo docker-compose up  (This will run the django imdb_clone @ http://0.0.0.0:8000) 
 ```
-You can edit and add movies , tvshows and actors using this app to delete you need to be superuser you can do that by navigating to   
+You can edit and add movies , tvshows and actors using this app.To delete you need to be superuser you can do that by navigating to   
 (http://0.0.0.0:8000/admin/) username - root , password = rootuser 
 You can also create your own super user by using
 ```
@@ -67,7 +68,7 @@ Now you can acess the imdb_clone mvc app at http://127.0.0.1:8000
 for admin page you can navigate to http://127.0.0.1:8000/admin/
 
 # Aditional Usefull commands
- - python3 manage.py createsuperuser (creates a root account for acessing database) 
+ - python3 manage.py createsuperuser (creates a root account for acessing database internals and deleting records) 
  - python3 manage.py makemigrations (For migrating models and making changes)
  - python3 manage.py migrate (for migrating changes made using makemigrations)
 
