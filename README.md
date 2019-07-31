@@ -2,7 +2,8 @@
 This Project is developed as a selection process for Deltax. It Contains the basic requirements that are mentioned by the company. The entire project is developed using Django(MVCT) Faramework.Users can add movies and actors and Tv-shows and can edit them and delete if they have the root privilages. More Documentation will be available in Documentation.txt file.This project has two versions 1)This version allows the user deploy the app using Docker Server. 2)Run on local host with installing required dependencies as pip install and run the python manage.py command from the imdb_clone directory.(Better to run it as a docker file 
 as it reduces your burden)
 # Note1) for entering multiple actors in movie form use - (ctr+left mouse click)
-# Note2) In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july  
+# Note2) In forms use DOB and Year-of-Release feilds informat (yyyy-mm-dd) - 1986-7-16 i.e 16th july 
+# Note 3) if you are using docker please do use sudo every time you runn the docker-compose command
 # Clone the git Repo
 # Method 1(Using docker-compose)
 
@@ -35,12 +36,12 @@ You can edit and add movies , tvshows and actors using this app to delete you ne
 (http://0.0.0.0:8000/admin/) username - root , password = rootuser 
 You can also create your own super user by using
 ```
-src_docker_version/$ docker-compose run web python3 manage.py createsuperuser
+src_docker_version/$ sudo docker-compose run web python3 manage.py createsuperuser
 ```
 You can do migrations to database using (perform only if you want to make an edit to the db models created by me)
 ```
-src_docker_version/$ docker-compose run web python3 manage.py makemigrations
-src_docker_version/$ docker-compose run web python3 manage.py migrate
+src_docker_version/$ sudo docker-compose run web python3 manage.py makemigrations
+src_docker_version/$ sudo docker-compose run web python3 manage.py migrate
 ```
 
 # Method 2(run using python manage.py runserver)
