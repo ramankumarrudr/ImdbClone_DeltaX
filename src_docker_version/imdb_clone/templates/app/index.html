@@ -30,7 +30,7 @@
                       <a class="nav-link active" href="#">Movies<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'tvshow'%}">Tv-Shows</a>
+                      <a class="nav-link" href="{% url 'tvshow'%}">-Shows</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'actor'%}">Celebrities</a>
@@ -71,7 +71,7 @@
         <thead class="t_head">
           <tr>
             <th scope="col" class="table_body">Poster</th>
-            <th scope="col" class="table_body">Tvshow Name</th>
+            <th scope="col" class="table_body">Movie Name</th>
             <th scope="col" class="table_body">Year of Release</th>
             <th scope="col" class="table_body">Plot</th>
             <th scope="col" class="table_body">Cast</th>
@@ -130,7 +130,7 @@
           <thead class="t_head">
             <tr>
               <th scope="col" class="table_body">Poster</th>
-              <th scope="col" class="table_body">Tvshow Name</th>
+              <th scope="col" class="table_body">Movie Name</th>
               <th scope="col" class="table_body">Year of Release</th>
               <th scope="col" class="table_body">Plot</th>
               <th scope="col" class="table_body">Cast</th>
@@ -146,7 +146,7 @@
                 <button type="button" class="btn btn-primary">{{show.lang}}</button> <button type="button" class="btn btn-primary">{{show.gener}}</button> <button type="button" class="btn btn-primary">{{show.status}}</button>
               </td>
               </td>
-              <td class="table_data">{{ show.tvshow }}</td>
+              <td class="table_data">{{ show.movie }}</td>
               <td class="table_data">{{ show.release_date }}</td>
               <td class="table_data">{{ show.plot }}</td>
               <td class="table_data">{{ show.get_actor_values }}</td>
@@ -188,7 +188,7 @@
             <thead class="t_head">
               <tr>
                 <th scope="col" class="table_body">Poster</th>
-                <th scope="col" class="table_body">Tvshow Name</th>
+                <th scope="col" class="table_body">Movie Name</th>
                 <th scope="col" class="table_body">Year of Release</th>
                 <th scope="col" class="table_body">Plot</th>
                 <th scope="col" class="table_body">Cast</th>
@@ -245,7 +245,7 @@
               <thead class="t_head">
                 <tr>
                   <th scope="col" class="table_body">Poster</th>
-                  <th scope="col" class="table_body">Tvshow Name</th>
+                  <th scope="col" class="table_body">Movie Name</th>
                   <th scope="col" class="table_body">Year of Release</th>
                   <th scope="col" class="table_body">Plot</th>
                   <th scope="col" class="table_body">Cast</th>
@@ -314,5 +314,4 @@
 
 </body>
 </html>
-
 
